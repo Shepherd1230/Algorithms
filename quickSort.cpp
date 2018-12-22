@@ -5,7 +5,7 @@
 #include<vector>
 using namespace std;
 
-void quicksort(vector<int> &a,int left,int right)
+void quickSort(vector<int> &a, int left, int right)
 {
 	if (left > right)
 		return;
@@ -13,22 +13,22 @@ void quicksort(vector<int> &a,int left,int right)
 	int i = left, j = right;
 	int temp = a.at(i);
 
-	while (i<j)
+	while (i < j)
 	{
-		while (i<j && a.at(j)>=temp)
+		while (i < j && a.at(j) >= temp)
 		{
 			j--;
 		}
-		if (j>i)
+		if (j > i)
 		{
 			a.at(i) = a.at(j);
 		}
 
-		while (i<j && a.at(i)<=temp)
+		while (i < j && a.at(i) <= temp)
 		{
 			i++;
 		}
-		if (i<j)
+		if (i < j)
 		{
 			a.at(j) = a.at(i);
 		}
@@ -37,9 +37,9 @@ void quicksort(vector<int> &a,int left,int right)
 
 	a.at(i) = temp;
 
-	quicksort(a, left, i - 1);
+	quickSort(a, left, i - 1);
 
-	quicksort(a, i + 1, right);
+	quickSort(a, i + 1, right);
 
 
 }
@@ -47,7 +47,7 @@ void quicksort(vector<int> &a,int left,int right)
 void vec_print(vector<int> a)
 {
 	int i = 0;
-	for (i = 0; i < a.size()-1; i++)
+	for (i = 0; i < a.size() - 1; i++)
 	{
 		cout << a.at(i) << " ";
 	}
@@ -57,11 +57,11 @@ void vec_print(vector<int> a)
 int main()
 {
 	//int ini_value[7] = { 1,2,3,4,5,6,7 };
-	int ini_value[7] = { 7,6,5,4,3,2,2};
+	int ini_value[7] = { 7,6,5,4,3,2,2 };
 	vector<int> a(ini_value, ini_value + 7);
 	vec_print(a);
 
-	quicksort(a,0,a.size()-1);
+	quickSort(a, 0, a.size() - 1);
 
 	vec_print(a);
 	return 0;
